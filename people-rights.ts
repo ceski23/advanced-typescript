@@ -6,7 +6,7 @@ type GoodPeople = '🖐🏻' | '🖐🏼'
 
 type PeopleRights = unknown
 
-type Test = Expect<Equal<PeopleRights, {
+type Test = Expect<Equal<PeopleRights<People, GoodPeople>, {
     '🖐🏻': true,
     '🖐🏼': true,
     '🖐🏽': false,

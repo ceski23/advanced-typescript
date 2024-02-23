@@ -12,4 +12,4 @@ type ProgrammersToKick = [
 
 type KickProgrammers = unknown
 
-type Test = Expect<Equal<KickProgrammers<Programmers, ProgrammersToKick>, ['GW', 'Adrianna', 'Adrian', 'GT', 'Joshua', 'Cezary', 'Przemek']>>
+type Test = Expect<Equal<KickProgrammers<Programmers, ProgrammersToKick>, 'GW' | 'Adrianna' | 'Adrian' | 'GT' | 'Cezary' | 'Przemek'>>

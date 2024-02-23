@@ -1,6 +1,6 @@
 import { Equal, Expect } from './tests'
 
-type CreateArray = ['test', 'test', 'test']
+type CreateArray = unknown
 
 type Test1 = Expect<Equal<CreateArray<'test', 2>, ['test', 'test']>>
 type Test2 = Expect<Equal<CreateArray<'test', 0>, []>>
