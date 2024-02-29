@@ -7,7 +7,9 @@ type Salaries = {
     Junior: '1 USD'
 }
 
-type SalariesInNumber = unknown
+type SalariesInNumber = {
+    [K in keyof Salaries]: Salaries[K] extends `${infer C extends number} USD` ? C : never
+}
 
 type Test1 = Expect<Equal<SalariesInNumber, {
     CEO: 1000000,

@@ -1,6 +1,8 @@
 import { Equal, Expect } from '../tests'
 
-type Reverse = unknown
+type Reverse<S extends string> = S extends `${infer H}${infer T}`
+    ? `${Reverse<T>}${H}`
+    : ''
 
 type Test1 = Expect<Equal<Reverse<'abc'>, 'cba'>>
 type Test2 = Expect<Equal<Reverse<'abcd'>, 'dcba'>>

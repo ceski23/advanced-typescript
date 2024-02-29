@@ -10,6 +10,6 @@ type ProgrammersToKick = [
     'Pratick', 'Krishna', 'Mohamed', 'Joshua'
 ]
 
-type KickProgrammers = unknown
+type KickProgrammers<TGood extends Array<unknown>, TKick extends Array<unknown>> = Exclude<TGood[number], TKick[number]>
 
 type Test = Expect<Equal<KickProgrammers<Programmers, ProgrammersToKick>, 'GW' | 'Adrianna' | 'Adrian' | 'GT' | 'Cezary' | 'Przemek'>>

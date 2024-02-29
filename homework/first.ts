@@ -1,6 +1,6 @@
 import { Equal, Expect } from '../tests'
 
-type First = unknown
+type First<T extends Array<unknown>> = T extends [infer F, ...Array<unknown>] ? F : never
 
 type Test1 = Expect<Equal<First<[1, 2, 3]>, 1>>
 type Test2 = Expect<Equal<First<[() => 1, { a: string }]>, () => 1>>

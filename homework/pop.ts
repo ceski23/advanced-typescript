@@ -1,6 +1,10 @@
 import { Equal, Expect } from '../tests'
 
-type Pop = unknown
+type Pop<A extends Array<unknown>> = A extends [infer H, ...infer T]
+    ? T['length'] extends 0
+        ? []
+        : [H, ...Pop<T>]
+    : []
 
 type Test1 = Expect<Equal<Pop<[1, 2, 3]>, [1, 2]>>
 type Test2 = Expect<Equal<Pop<[() => 1, () => 2]>, [() => 1]>>
